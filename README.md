@@ -1,2 +1,4 @@
-# flappy-commit-animation
-Flappy game animation to commits in my Github home page
+<p align="center">
+  <img src="output/flappy.svg" width="420" />
+</p>
+
