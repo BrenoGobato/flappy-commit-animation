@@ -1,5 +1,8 @@
 name: Flappy Bird SVG
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: "0 0 * * *"   # 1x por dia
@@ -13,9 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Touch flappy svg
+      - name: Update flappy svg timestamp
         run: |
-          echo "<!-- update -->" >> output/flappy.svg
+          echo "<!-- $(date) -->" >> output/flappy.svg
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
