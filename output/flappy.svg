@@ -5,19 +5,47 @@
   xmlns="http://www.w3.org/2000/svg"
 >
 
-  <style>
+<style>
+  .cell {
+    fill: #ebedf0;
+  }
+
+  @media (prefers-color-scheme: dark) {
     .cell {
-      fill: #ebedf0;
+      fill: #30363d;
     }
+  }
 
-    @media (prefers-color-scheme: dark) {
-      .cell {
-        fill: #30363d;
-      }
+  .bird-body {
+    fill: #24292f;
+  }
+
+  .bird-eye {
+    fill: #ffffff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .bird-body {
+      fill: #c9d1d9;
     }
-  </style>
+  }
 
-  <g transform="translate(20, 20)">
+  :root {
+    --pipe-color: #2ecc71;
+    --pipe-cap: #27ae60;
+  }
+
+  .pipe {
+    fill: var(--pipe-color);
+  }
+  
+  .pipe-top {
+    fill: var(--pipe-cap);
+  }
+    
+</style>
+
+<g transform="translate(20, 20)">
   <!-- coluna 1 -->
   <rect class="cell" x="0"  y="0"  width="12" height="12" rx="2"/>
   <rect class="cell" x="0"  y="16" width="12" height="12" rx="2"/>
@@ -31,6 +59,66 @@
   <rect class="cell" x="16" y="32" width="12" height="12" rx="2"/>
   <rect class="cell" x="16" y="48" width="12" height="12" rx="2"/>
   <rect class="cell" x="16" y="64" width="12" height="12" rx="2"/>
+</g>
+
+<g id="bird">
+  <animateTransform
+    attributeName="transform"
+    type="translate"
+    from="120 52"
+    to="120 44"
+    dur="0.8s"
+    repeatCount="indefinite"
+    direction="alternate"
+    easing="ease-in-out"
+  />
+  <!-- corpo -->
+  <rect class="bird-body" x="0"  y="4" width="4" height="4"/>
+  <rect class="bird-body" x="4"  y="0" width="4" height="4"/>
+  <rect class="bird-body" x="4"  y="4" width="4" height="4"/>
+  <rect class="bird-body" x="4"  y="8" width="4" height="4"/>
+  <rect class="bird-body" x="8"  y="4" width="4" height="4"/>
+
+  <!-- olho -->
+  <rect class="bird-eye" x="6" y="4" width="2" height="2"/>
+</g>
+
+<!-- PIPE SET 1 - Buraco centralizado -->
+<g class="pipe-set">
+  <animateTransform attributeName="transform" type="translate" from="400 0" to="-60 0" dur="6s" begin="0s" repeatCount="indefinite" />
+  <!-- Cano Superior -->
+  <rect class="pipe" x="0" y="0" width="16" height="38"/>
+  <rect class="pipe-top" x="-4" y="34" width="24" height="4"/>
+  <!-- Cano Inferior -->
+  <rect class="pipe" x="0" y="73" width="16" height="39"/>
+  <rect class="pipe-top" x="-4" y="73" width="24" height="4"/>
+</g>
+
+<!-- PIPE SET 2 - Centro exato -->
+<g class="pipe-set">
+  <animateTransform attributeName="transform" type="translate" from="400 0" to="-60 0" dur="6s" begin="1.33s" repeatCount="indefinite" />
+  <rect class="pipe" x="0" y="0" width="16" height="28"/>
+  <rect class="pipe-top" x="-4" y="24" width="24" height="4"/>
+  <rect class="pipe" x="0" y="63" width="16" height="49"/>
+  <rect class="pipe-top" x="-4" y="63" width="24" height="4"/>
+</g>
+
+<!-- PIPE SET 3 - Levemente para BAIXO -->
+<g class="pipe-set">
+  <animateTransform attributeName="transform" type="translate" from="400 0" to="-60 0" dur="6s" begin="2.66s" repeatCount="indefinite" />
+  <rect class="pipe" x="0" y="0" width="16" height="48"/>
+  <rect class="pipe-top" x="-4" y="44" width="24" height="4"/>
+  <rect class="pipe" x="0" y="83" width="16" height="29"/>
+  <rect class="pipe-top" x="-4" y="83" width="24" height="4"/>
+</g>
+
+  <!-- PIPE SET 4 - Quarto cano (Sutilmente acima do centro) -->
+<g class="pipe-set">
+  <animateTransform attributeName="transform" type="translate" from="400 0" to="-60 0" dur="6s" begin="3.99s" repeatCount="indefinite" />
+  <rect class="pipe" x="0" y="0" width="16" height="33"/>
+  <rect class="pipe-top" x="-4" y="29" width="24" height="4"/>
+  <rect class="pipe" x="0" y="68" width="16" height="44"/>
+  <rect class="pipe-top" x="-4" y="68" width="24" height="4"/>
 </g>
 
 
