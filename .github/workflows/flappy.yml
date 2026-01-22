@@ -1,1 +1,24 @@
-asdfasd
+name: Flappy Bird SVG
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # 1x por dia
+  workflow_dispatch:
+
+jobs:
+  update-svg:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Touch flappy svg
+        run: |
+          echo "<!-- update -->" >> output/flappy.svg
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update flappy bird animation"
+
